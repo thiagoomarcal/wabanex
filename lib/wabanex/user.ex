@@ -15,7 +15,8 @@ defmodule Wabanex.User do
   end
 
   def changeset(params) do
-    %__MODULE__{} # Wabanex.User
+    # Wabanex.User
+    %__MODULE__{}
     |> cast(params, @fields)
     |> validate_required(@fields)
     |> validate_length(:password, min: 6)
@@ -23,5 +24,4 @@ defmodule Wabanex.User do
     |> validate_format(:email, ~r/@/)
     |> unique_constraint([:email])
   end
-
 end

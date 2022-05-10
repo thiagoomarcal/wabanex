@@ -18,5 +18,4 @@ defmodule WabanexWeb.IMCController do
     |> put_status(status)
     |> json(%{result: result})
   end
-
 end

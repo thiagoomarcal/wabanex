@@ -10,6 +10,5 @@ defmodule Wabanex.Repo.Migrations.CreateUsersTable do
     end
 
     create unique_index(:users, [:email])
-
   end
 end
