@@ -6,5 +6,4 @@ defmodule Wabanex.Trainings.Create do
     |> Training.changeset()
     |> Repo.insert()
   end
-
 end

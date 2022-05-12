@@ -16,5 +16,4 @@ defmodule WabanexWeb.Schema.Types.Exercise do
     field :protocol_description, non_null(:string)
     field :repetitions, non_null(:string)
   end
-
 end

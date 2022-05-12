@@ -15,7 +15,6 @@ defmodule WabanexWeb.Router do
 
     forward "/graphql", Absinthe.Plug, schema: WabanexWeb.Schema
     forward "/graphiql", Absinthe.Plug.GraphiQL, schema: WabanexWeb.Schema
-
   end
 
   # Enables LiveDashboard only for development

@@ -15,7 +15,6 @@ defmodule WabanexWeb.Schema.Types.Root do
       arg :id, non_null(:uuid4)
 
       resolve &UserResolver.get/2
-
     end
   end
 
@@ -33,7 +32,5 @@ defmodule WabanexWeb.Schema.Types.Root do
       resolve &TrainingResolver.create/2
       middleware TranslateErrors
     end
-
   end
-
 end
