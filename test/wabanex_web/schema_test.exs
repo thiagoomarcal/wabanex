@@ -34,7 +34,6 @@ defmodule WabanexWeb.SchemaTest do
 
   describe "users mutations" do
     test "when all params are valid, creates the user", %{conn: conn} do
-
       mutation = """
         mutation {
           createUser(input:{name: "Aldeci", email: "aldeci.leandro@gmail.com", password: "123456"}) {
@@ -51,10 +50,7 @@ defmodule WabanexWeb.SchemaTest do
         |> post("/api/graphql", %{query: mutation})
         |> json_response(:ok)
 
-        assert %{"data" => %{"createUser" => %{"id" => _id, "name" => "Aldeci"}}} = response
-
+      assert %{"data" => %{"createUser" => %{"id" => _id, "name" => "Aldeci"}}} = response
     end
-
   end
-
 end
