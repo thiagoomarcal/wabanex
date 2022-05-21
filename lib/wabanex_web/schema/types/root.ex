@@ -26,11 +26,28 @@ defmodule WabanexWeb.Schema.Types.Root do
       middleware TranslateErrors
     end
 
+    field :update_user, type: :user do
+      arg :id, non_null(:uuid4)
+      arg :user, :udpate_user_params
+
+      resolve &UserResolver.update/2
+      middleware TranslateErrors
+
+    end
+
     field :create_training, type: :training do
       arg :input, non_null(:create_training_input)
 
       resolve &TrainingResolver.create/2
       middleware TranslateErrors
     end
+
+    field :delete_user, :user do
+      arg(:id, non_null(:uuid4))
+
+      resolve(&UserResolver.delete/2)
+      middleware TranslateErrors
+    end
+
   end
 end

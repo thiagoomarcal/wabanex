@@ -32,4 +32,11 @@ defmodule Wabanex.User do
     |> validate_format(:email, ~r/@/)
     |> unique_constraint([:email])
   end
+
+  def changeset_update(struct, params \\ %{}) do
+    struct
+    |> cast(params, [:email, :password, :height, :weight, :fat_percentage, :muscle_mass_percentage])
+    |> validate_required([:email, :password, :height, :weight, :fat_percentage, :muscle_mass_percentage])
+  end
+
 end
