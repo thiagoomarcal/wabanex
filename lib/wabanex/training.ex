@@ -14,7 +14,7 @@ defmodule Wabanex.Training do
     field :start_date, :date
 
     belongs_to :user, User
-    has_many :exercises, Exercise
+    has_many :exercises, Exercise, on_delete: :delete_all
 
     timestamps()
   end
@@ -26,5 +26,11 @@ defmodule Wabanex.Training do
     |> validate_required(@fields)
     |> unique_constraint([:email])
     |> cast_assoc(:exercises)
+  end
+
+  def changeset_update(struct, params \\ %{}) do
+    struct
+    |> cast(params, [:end_date, :start_date])
+    |> validate_required([:end_date, :start_date])
   end
 end
